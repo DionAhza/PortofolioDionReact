@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      scrollBehavior: ['responsive'],
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

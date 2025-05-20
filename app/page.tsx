@@ -1,101 +1,579 @@
+'use client';
 import Image from "next/image";
+import { useState, useRef, useEffect } from 'react';
+import Lanyard from "./components/Lanyard/Lanyard";
+import RotatingText from "./components/RotatingText/RotatingText";
+import BlurText from "./components/BlurText/BlurText";
+import DecryptedText from "./components/DecryptedText/DecryptedText";
+import SplitText from "./components/SplitText/SplitText";
+import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
+import AnimatedSection from "./components/AnimatedContent/AnimatedSection";
+import Threads from "./components/Threads/Threads";
+import { FaUser, FaProjectDiagram, FaCertificate, FaEnvelope , FaHome } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaFolder, FaFolderOpen } from 'react-icons/fa';
+import { useRouter } from 'next/router';
+import { Facebook, Instagram, Linkedin, Github } from 'lucide-react';
+import Link from 'next/link';
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+   
+   const [active, setActive] = useState(0);
+   
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+
+   //sertifikat
+   const certificates = [
+    {
+    title: 'Sertifikat BackEnd',
+    image: './assets/sertifikat/MySkill/backend-development.jpg',
+    description: 'Pelatihan BackEnd tingkat lanjut',
+    pdf: 'assets/sertifikat/MySkill/BACKEND DEVELOPMENT INTRODUCTION 2.pdf',
+    },
+    {
+    title: 'Sertifikat CyberLabs',
+    image: 'assets/sertifikat/Dion Ahza Rabbani-TTD.png',
+    description: 'Pelatihan JavaScript  Framework',
+    pdf: '/assets/sertifikat/MySkill/react.pdf',
+    },
+    {
+    title: 'Sertifikat UI/UX',
+    image: '/assets/sertifikat/MySkill/uiux.pdf',
+    description: 'Workshop desain antarmuka dan pengalaman pengguna.',
+    pdf: '/assets/sertifikat/MySkill/uiux.pdf',
+    },
+    ]
+    
+    
+    
+    
+  
+
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  const next = () => {
+    setActive((prev) => (prev + 1) % certificates.length)
+  }
+
+  const prev = () => {
+    setActive((prev) => (prev - 1 + certificates.length) % certificates.length)
+  }
+
+  useEffect(() => {
+    intervalRef.current = setInterval(next, 10000)
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [])
+   //end sertifikat
+  //contact
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+  
+  //endcontact
+  return (
+
+    
+    <div className=" mx-auto h-screen w-screen bg-[#19222D] ">
+      <section id="home" className="">
+      <div className="pl-20">
+        <style>
+          
+        </style>
+        <motion.div
+  className="fixed left-1 top-1/2 z-50"
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  style={{ translateY: "-50%" }}
+>
+      <div className="bg-[#1F2A38] rounded-xl p-3 flex flex-col items-center space-y-6 shadow-lg border border-[#2c3e50]">
+        <a href="#home" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+          <FaHome size={24} title="Home" />
+        </a>
+        <a href="#about" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+          <FaUser size={24} title="About" />
+        </a>
+        <a href="#projects" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+          <FaProjectDiagram size={24} title="Projects" />
+        </a>
+        <a href="#sertifikat" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+          <FaCertificate size={24} title="Sertifikat" />
+        </a>
+        <a href="#contact" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+          <FaEnvelope size={24} title="Contact" />
+        </a>
+      </div>
+    </motion.div>
+      <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-full">
+        {/* <Threads
+    amplitude={1}
+    distance={0}
+    enableMouseInteraction={true}
+  /> */}
+      </div>
+      
+      
+      <div className="container  mx-auto h-screen">
+        <div className="grid grid-cols-12">
+          <div className="col-span-6">
+            <div className="flex items-center h-full">
+              <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-2">
+          <AnimatedContent
+          distance={150}
+          direction="horizontal"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1.1}
+          threshold={0.2}>
+            <div className="flex items-center gap-2">
+          <h1 className="text-2xl text-white font-bold">I'm Ready For Job</h1>
+<RotatingText
+  texts={['FULLSTACK DEVELOPER', 'WEB DEVELOPER', 'WEB DESIGN', 'WORDPRESS']}
+  mainClassName="px-4 sm:px-2 md:px-3 bg-[#C6F10E] text-black overflow-hidden py-0.5 sm:py-1  justify-center rounded-lg text-2xl font-bold inline-flex transition-all mb-3"
+  staggerFrom={"last"}
+  initial={{ y: "100%" }}
+  animate={{ y: 0 }}
+  exit={{ y: "-120%" }}
+  staggerDuration={0.025}
+  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+  rotationInterval={2000}
+/>
+         
+            </div>
+         
+
+          </AnimatedContent>
+   </div>
+            <div className="flex flex-col items-start"> 
+  <SplitText
+    text="DION AHZA RABBANI"
+    className=" text-4xl text-white font-bold"
+    delay={25}
+    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+    threshold={0.2}
+    rootMargin="-50px"
+  />
+  <SplitText
+    text="FULLSTACK DEVELOPER"
+    className="text-4xl text-[#C6F10E] font-bold"
+    delay={75}
+    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+    threshold={0.2}
+    rootMargin="-50px"
+  />
+</div>
+            <div className="">
+            <BlurText
+  text="I'm a passionate Fullstack Developer based in Indonesia, skilled in both frontend and backend development. A proud graduate of SMK Wikrama Bogor, I specialize in building responsive, user-friendly, and efficient web applications using modern technologies. With a strong commitment to continuous learning and delivering high-quality code, I strive to turn ideas into impactful digital solutions."
+  delay={50}
+  animateBy="words"
+  direction="top"
+  // onAnimationComplete={handleAnimationComplete}
+  className="text-xl mb-8 text-white"
+/>
+            </div>
+            <motion.div
+  className="flex gap-6 mt-3 mb-4 ml-3"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+>
+  <a
+    href="https://instagram.com/dionahza57"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="text-white hover:text-[#E4405F] transition-transform transform hover:scale-110 duration-300"
+  >
+    <FaInstagram size={32} />
+  </a>
+  <a
+    href="https://linkedin.com/in/dionahzarabbani"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="text-white hover:text-[#0A66C2] transition-transform transform hover:scale-110 duration-300"
+  >
+    <FaLinkedin size={32} />
+  </a>
+  <a
+    href="https://github.com/DionAhza"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    className="text-white hover:text-[#ccc] transition-transform transform hover:scale-110 duration-300"
+  >
+    <FaGithub size={32} />
+  </a>
+</motion.div>
+
+
+            </div>
+
+            </div>
+            
+          </div>
+          <div className="col-span-6">
+            <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
+          </div>
+        </div>
+      </div>
+      </div>
+      </section>
+      <section id="about" className="  min-h-screen bg-[#0F172A] mx-auto flex items-center justify-center px-4 py-20 pl-20 ">
+        <AnimatedSection>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden">
+        
+        {/* Text Area */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, type: "spring" }}
+          className="text-white space-y-6"
+        >
+          <h2 className="text-4xl font-bold text-[#C6F10E]">About Me</h2>
+          <BlurText
+  text="I am a Full Stack Developer with expertise in Laravel and React. A graduate of SMK Wikrama Bogor, I have experience developing Blogger CMS websites during my internship and several other projects, including an online catalog website selling chairs and tables from used barrels."
+  delay={50}
+  animateBy="words"
+  direction="top"
+  // onAnimationComplete={handleAnimationComplete}
+  className="text-xl mb-8 text-white"
+/>
+<Link href="/about-detail">
+      <button className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">Learn More</button>
+    </Link>
+
+        </motion.div>
+
+        {/* Images */}
+        <motion.div
+          initial={{ opacity: 0, x: 100, scale: 0.8 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1, type: "spring" }}
+          className="grid grid-cols-2 gap-4"
+        >
+          <Image
+            src="/assets/about/About-dion-1.jpeg"
+            alt="About Dion 1"
+            width={300}
+            height={300}
+            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+          {/* <Image
+            src="/assets/about/About-dion-2.jpeg"
+            alt="About Dion 2"
+            width={300}
+            height={300}
+            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          /> */}
+          <Image
+            src="/assets/about/About-dion-3.jpeg"
+            alt="About Dion 3"
+            width={300}
+            height={300}
+            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+          <Image
+            src="/assets/about/About-dion-4.jpeg"
+            alt="About Dion 4"
+            width={300}
+            height={300}
+            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </motion.div>
+      </div>
+      
+      </AnimatedSection>
+    </section>
+    <section id="projects" className="min-h-screen bg-[#19222D] text-white py-20 pl-18">
+  <div className="container mx-auto">
+    <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
+      <h2 className="text-4xl font-bold text-[#C6F10E] text-center ">
+        My Projects
+      </h2>
+      <Link href="/project-detail">
+        <button className="px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
+          See more
+        </button>
+      </Link>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      {/* Project Card */}
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+        <img src="./assets/projects/UTII.jpg" alt="Project 1" className="w-full h-48 object-cover" />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Company Web </h3>
+          <p className="text-sm text-gray-300 mb-4">Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi.
+Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">JavaScript</span>
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">HTML</span>
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">PHP</span>
+          </div>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://uti.co.id"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-[#C6F10E] font-medium hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            Lihat di Website →
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Project 2 */}
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+        <img src="./assets/projects/Kasir.jpg" alt="Project 2" className="w-full h-48 object-cover" />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Kasir App</h3>
+          <p className="text-sm text-gray-300 mb-4">Aplikasi kasir modern dengan fitur pencatatan transaksi dan manajemen stok.</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Laravel</span>
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Blade</span>
+          </div>
+          <a
+            href="https://github.com/DionAhza/UKK_Kasir_Dion"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#C6F10E] font-medium hover:underline"
+          >
+            Lihat di GitHub →
+          </a>
+        </div>
+      </div>
+
+      {/* Project 3 */}
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+        <img src="./assets/projects/Movies.jpeg" alt="Project 3" className="w-full h-48 object-cover" />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Movie Rating App</h3>
+          <p className="text-sm text-gray-300 mb-4">Aplikasi pencarian dan penilaian film menggunakan API film dan Laravel backend.</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Laravel</span>
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">React</span>
+            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">API</span>
+          </div>
+          <a
+            href="https://github.com/DionAhza/Laravel-movies"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#C6F10E] font-medium hover:underline"
+          > Lihat di GitHub →
+          </a>
+           
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+<section id="sertifikat" className="bg-[#19222D] text-white py-16 px-4">
+  <div className="max-w-xl mx-auto text-center">
+    <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+      <h2 className="text-3xl font-bold text-[#C6F10E] text-center md:text-left">
+        Sertifikat Saya
+      </h2>
+      <Link href="/certificates-detail">
+        <button className="px-6 py-2 bg-[#C6F10E] text-[#19222D] font-semibold rounded-md hover:bg-lime-400 transition">
+          See More
+        </button>
+      </Link>
+    </div>
+
+    <div className="relative w-full overflow-hidden rounded-xl">
+      <motion.div
+        className="flex"
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        style={{ x: 0 }}
+      >
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.5 }}
+          className="w-full"
+        >
+          <div className="bg-[#1F2A38] rounded-xl shadow-md p-6">
+            <img
+              src={certificates[active].image}
+              alt={certificates[active].title}
+              className="w-full h-64 object-contain mb-4"
+            />
+            <h3 className="text-lg font-semibold mb-2">{certificates[active].title}</h3>
+            <p className="text-sm text-gray-300 mb-4">
+              {certificates[active].description}
+            </p>
+            <a
+              href={certificates[active].pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 bg-[#C6F10E] text-black font-semibold rounded-md hover:bg-lime-400 transition"
+            >
+              Lihat PDF
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+
+    {/* Dots */}
+    <div className="flex justify-center mt-4 space-x-2">
+      {certificates.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setActive(index)}
+          className={`w-3 h-3 rounded-full ${
+            index === active ? 'bg-[#C6F10E]' : 'bg-gray-400'
+          }`}
+        />
+      ))}
+    </div>
+
+    {/* Buttons */}
+    <div className="flex justify-between mt-6">
+      <button
+        onClick={prev}
+        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md"
+      >
+        Previous
+      </button>
+      <button
+        onClick={next}
+        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</section>
+
+{/* Section Contact */}
+<section className="bg-[#101820] text-white py-20 px-6">
+  <div className="max-w-2xl mx-auto text-center">
+    <h2 className="text-3xl font-bold text-[#C6F10E] mb-6">Hubungi Saya</h2>
+    <p className="text-gray-300 mb-8">Silakan tinggalkan pesan jika ada pertanyaan atau kerja sama.</p>
+
+    <form
+      onSubmit={(e) => {
+        e.preventDefault()
+        alert('Pesan berhasil dikirim!')
+        setFormData({ name: '', email: '', message: '' })
+      }}
+      className="space-y-4 text-left"
+    >
+      <input
+        type="text"
+        name="name"
+        placeholder="Nama Anda"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Anda"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
+      />
+      <textarea
+        name="message"
+        placeholder="Pesan"
+        value={formData.message}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
+      />
+      <button
+        type="submit"
+        className="bg-[#C6F10E] text-black font-semibold px-6 py-3 rounded-lg hover:bg-lime-400 transition-all duration-300"
+      >
+        Kirim Pesan
+      </button>
+    </form>
+  </div>
+</section>
+{/* Footer */}
+<footer className="bg-[#0F1A25] text-gray-400 py-10 px-6 text-sm"> <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left"> {/* Kontak */} <div> <h3 className="text-white font-semibold mb-2">Kontak</h3> <p>Alamat: Cigombong, Bogor</p> <p>Nomor: 089639154877</p> <p> Email:{' '} <a href="mailto:dionahza15@gmail.com" className="underline hover:text-[#C6F10E]" > dionahza15@gmail.com </a> </p> </div>
+
+{/* Quick Links */}
+<div>
+  <h3 className="text-white font-semibold mb-2">Quick Links</h3>
+  <ul className="space-y-1">
+    <li>
+      <a href="#home" className="hover:text-[#C6F10E]">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="#about" className="hover:text-[#C6F10E]">
+        About
+      </a>
+    </li>
+    <li>
+      <a href="#projects" className="hover:text-[#C6F10E]">
+        Projects
+      </a>
+    </li>
+    <li>
+      <a href="#contact" className="hover:text-[#C6F10E]">
+        Contact
+      </a>
+    </li>
+  </ul>
+</div>
+
+{/* Sosial Media */}
+<div>
+  <h3 className="text-white font-semibold mb-2">Follow Me</h3>
+  <div className="flex justify-center sm:justify-start gap-4 mt-2">
+    {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+      <Facebook size={20} />
+    </a> */}
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+      <Github size={20} />
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+      <Instagram size={20} />
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+      <Linkedin size={20} />
+    </a>
+  </div>
+</div>
+</div>
+{/* Copyright */}
+
+<p className="text-center text-gray-500 mt-8"> &copy; {new Date().getFullYear()} Dion Ahza Rabbani. All rights reserved. </p>
+ </footer>
+
+
+
+    </div>
+
   );
+ 
 }
