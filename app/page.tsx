@@ -40,8 +40,14 @@ export default function Home() {
     },
     {
     title: 'Sertifikat UI/UX',
-    image: '/assets/sertifikat/MySkill/uiux.pdf',
+    image: '/assets/sertifikat/ui.jpg',
     description: 'Workshop desain antarmuka dan pengalaman pengguna.',
+    pdf: '/assets/sertifikat/MySkill/uiux.pdf',
+    },
+    {
+    title: 'Sertifikat Agen Sakti',
+    image: '/assets/sertifikat/AgenSakti.png',
+    description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
     pdf: '/assets/sertifikat/MySkill/uiux.pdf',
     },
     ]
@@ -84,112 +90,91 @@ export default function Home() {
 
     
     <div className=" mx-auto h-screen w-screen bg-[#19222D] ">
-      <section id="home" className="">
-      <div className="pl-20">
-        <style>
-          
-        </style>
-        <motion.div
-  className="fixed left-1 top-1/2 z-50"
-  initial={{ x: -100, opacity: 0 }}
-  animate={{ x: 0, opacity: 1 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
-  style={{ translateY: "-50%" }}
->
+     <section id="home" className="relative w-full">
+  <div className="pl-4 pr-4 md:pl-20">
+    <motion.div
+      className="fixed left-2 top-1/2 z-50"
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ translateY: "-50%" }}
+    >
       <div className="bg-[#1F2A38] rounded-xl p-3 flex flex-col items-center space-y-6 shadow-lg border border-[#2c3e50]">
-        <a href="#home" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
-          <FaHome size={24} title="Home" />
-        </a>
-        <a href="#about" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
-          <FaUser size={24} title="About" />
-        </a>
-        <a href="#projects" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
-          <FaProjectDiagram size={24} title="Projects" />
-        </a>
-        <a href="#sertifikat" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
-          <FaCertificate size={24} title="Sertifikat" />
-        </a>
-        <a href="#contact" className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
-          <FaEnvelope size={24} title="Contact" />
-        </a>
+        {/* Icons */}
+        {[["#home", <FaHome size={24} />], ["#about", <FaUser size={24} />], ["#projects", <FaProjectDiagram size={24} />], ["#sertifikat", <FaCertificate size={24} />], ["#contact", <FaEnvelope size={24} />]].map(([href, icon], idx) => (
+          <a key={idx} href={href as string} className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
+            {icon}
+          </a>
+        ))}
       </div>
     </motion.div>
-      <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-full">
-        {/* <Threads
-    amplitude={1}
-    distance={0}
-    enableMouseInteraction={true}
-  /> */}
-      </div>
-      
-      
-      <div className="container  mx-auto h-screen">
-        <div className="grid grid-cols-12">
-          <div className="col-span-6">
-            <div className="flex items-center h-full">
-              <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-          <AnimatedContent
-          distance={150}
-          direction="horizontal"
-          reverse={false}
-          config={{ tension: 80, friction: 20 }}
-          initialOpacity={0.2}
-          animateOpacity
-          scale={1.1}
-          threshold={0.2}>
-            <div className="flex items-center gap-2">
-          <h1 className="text-2xl text-white font-bold">I'm Ready For Job</h1>
-<RotatingText
-  texts={['FULLSTACK DEVELOPER', 'WEB DEVELOPER', 'WEB DESIGN', 'WORDPRESS']}
-  mainClassName="px-4 sm:px-2 md:px-3 bg-[#C6F10E] text-black overflow-hidden py-0.5 sm:py-1  justify-center rounded-lg text-2xl font-bold inline-flex transition-all mb-3"
-  staggerFrom={"last"}
-  initial={{ y: "100%" }}
-  animate={{ y: 0 }}
-  exit={{ y: "-120%" }}
-  staggerDuration={0.025}
-  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-  rotationInterval={2000}
-/>
-         
-            </div>
-         
 
-          </AnimatedContent>
-   </div>
-            <div className="flex flex-col items-start"> 
-  <SplitText
-    text="DION AHZA RABBANI"
-    className=" text-4xl text-white font-bold"
-    delay={25}
-    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-    threshold={0.2}
-    rootMargin="-50px"
-  />
-  <SplitText
-    text="FULLSTACK DEVELOPER"
-    className="text-4xl text-[#C6F10E] font-bold"
-    delay={75}
-    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-    threshold={0.2}
-    rootMargin="-50px"
-  />
-</div>
-            <div className="">
-            <BlurText
-  text="I'm a passionate Fullstack Developer based in Indonesia, skilled in both frontend and backend development. A proud graduate of SMK Wikrama Bogor, I specialize in building responsive, user-friendly, and efficient web applications using modern technologies. With a strong commitment to continuous learning and delivering high-quality code, I strive to turn ideas into impactful digital solutions."
-  delay={50}
-  animateBy="words"
-  direction="top"
-  // onAnimationComplete={handleAnimationComplete}
-  className="text-xl mb-8 text-white"
-/>
+    <div className="absolute inset-0 w-full h-full">{/* Background threads */}</div>
+
+    <div className="container mx-auto h-auto min-h-screen flex flex-col justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center h-full">
+        {/* Left Content */}
+        <div className="md:col-span-6">
+          <div className="flex flex-col justify-center h-full gap-6 text-center md:text-left items-center md:items-start">
+            <AnimatedContent
+              distance={150}
+              direction="horizontal"
+              reverse={false}
+              config={{ tension: 80, friction: 20 }}
+              initialOpacity={0.2}
+              animateOpacity
+              scale={1.1}
+              threshold={0.2}
+            >
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+                <h1 className="text-xl sm:text-2xl text-white font-bold">I'm Ready For Job</h1>
+                <RotatingText
+                  texts={['FULLSTACK DEVELOPER', 'WEB DEVELOPER', 'WEB DESIGN', 'WORDPRESS']}
+                  mainClassName="px-4 bg-[#C6F10E] text-black py-1 rounded-lg text-xl sm:text-2xl font-bold inline-flex transition-all mb-3"
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2000}
+                />
+              </div>
+            </AnimatedContent>
+          
+            <div>
+              <SplitText
+                text="DION AHZA RABBANI"
+                className="text-3xl sm:text-4xl text-white font-bold"
+                delay={25}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                threshold={0.2}
+                rootMargin="-50px"
+              />
+              <SplitText
+                text="FULLSTACK"
+                className="text-3xl sm:text-4xl text-[#C6F10E] font-bold"
+                delay={75}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                threshold={0.2}
+                rootMargin="-50px"
+              />
             </div>
+
+            <BlurText
+              text="I'm a passionate Fullstack Developer based in Indonesia, skilled in both frontend and backend development. A proud graduate of SMK Wikrama Bogor, I specialize in building responsive, user-friendly, and efficient web applications using modern technologies. With a strong commitment to continuous learning and delivering high-quality code, I strive to turn ideas into impactful digital solutions."
+              delay={50}
+              animateBy="words"
+              direction="top"
+              className="text-base sm:text-lg text-white"
+            />
+
+            {/* Social Icons */}
             <motion.div
-  className="flex gap-6 mt-3 mb-4 ml-3"
+  className="hidden sm:flex gap-6 mt-4"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.2 }}
@@ -198,44 +183,40 @@ export default function Home() {
     href="https://instagram.com/dionahza57"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Instagram"
-    className="text-white hover:text-[#E4405F] transition-transform transform hover:scale-110 duration-300"
+    className="text-white hover:text-[#E4405F] hover:scale-110 transition duration-300"
   >
-    <FaInstagram size={32} />
+    <FaInstagram size={28} />
   </a>
   <a
     href="https://linkedin.com/in/dionahzarabbani"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="text-white hover:text-[#0A66C2] transition-transform transform hover:scale-110 duration-300"
+    className="text-white hover:text-[#0A66C2] hover:scale-110 transition duration-300"
   >
-    <FaLinkedin size={32} />
+    <FaLinkedin size={28} />
   </a>
   <a
     href="https://github.com/DionAhza"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="GitHub"
-    className="text-white hover:text-[#ccc] transition-transform transform hover:scale-110 duration-300"
+    className="text-white hover:text-[#ccc] hover:scale-110 transition duration-300"
   >
-    <FaGithub size={32} />
+    <FaGithub size={28} />
   </a>
 </motion.div>
 
-
-            </div>
-
-            </div>
-            
-          </div>
-          <div className="col-span-6">
-            <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
           </div>
         </div>
+
+        {/* Right Content */}
+        <div className="md:col-span-6 mt-8 md:mt-0 flex justify-center bg-[#19222D]">
+          <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
+        </div>
       </div>
-      </div>
-      </section>
+    </div>
+  </div>
+</section>
+
       <section id="about" className="  min-h-screen bg-[#0F172A] mx-auto flex items-center justify-center px-4 py-20 pl-20 ">
         <AnimatedSection>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden">
@@ -423,14 +404,14 @@ Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informas
             <p className="text-sm text-gray-300 mb-4">
               {certificates[active].description}
             </p>
-            <a
+            {/* <a
               href={certificates[active].pdf}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 bg-[#C6F10E] text-black font-semibold rounded-md hover:bg-lime-400 transition"
             >
               Lihat PDF
-            </a>
+            </a> */}
           </div>
         </motion.div>
       </motion.div>

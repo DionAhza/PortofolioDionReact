@@ -20,28 +20,13 @@ export default function AboutDetail() {
   <ul className="relative border-l-2 border-[#C6F10E] pl-8 space-y-10 text-lg">
     <li className="relative">
       <span className="absolute -left-5 top-3 h-4 w-4 rounded-full bg-[#C6F10E] border-2 border-[#19222D]" />
-      <h3 className="font-semibold mb-2">
-        Web Developer di XYZ Company (2021-2023)
-      </h3>
+      <h3 className="font-semibold mb-2">Internship di PT Solusi Aplikasi</h3>
       <p className="ml-1 text-[#C6F10E]/90">
-        Saya mengerjakan project blalala dengan bahasa bla bala bla
+      - Mengembangkan Situs Web Perusahaan menggunakan CMS, HTML, CSS, dan JS
       </p>
-    </li>
-    <li className="relative">
-      <span className="absolute -left-5 top-3 h-4 w-4 rounded-full bg-[#C6F10E] border-2 border-[#19222D]" />
-      <h3 className="font-semibold mb-2">
-        Freelance Frontend Developer (2020-2021)
-      </h3>
-      <p className="ml-1 text-[#C6F10E]/90">
-        Mengerjakan berbagai project website dengan React dan Tailwind CSS.
-      </p>
-    </li>
-    <li className="relative">
-      <span className="absolute -left-5 top-3 h-4 w-4 rounded-full bg-[#C6F10E] border-2 border-[#19222D]" />
-      <h3 className="font-semibold mb-2">Internship di Startup ABC (2019)</h3>
-      <p className="ml-1 text-[#C6F10E]/90">
-        Membantu tim development dalam membuat fitur frontend.
-      </p>
+      <p className="ml-1 text-[#C6F10E]/90">- Desain Poster menggunakan Canva</p>
+      <p className="ml-1 text-[#C6F10E]/90">- Pengembang Wordpress</p>
+      <p className="ml-1 text-[#C6F10E]/90">- API Situs Web E-Commerce dengan Laravel dan React.js</p>
     </li>
   </ul>
 </section>

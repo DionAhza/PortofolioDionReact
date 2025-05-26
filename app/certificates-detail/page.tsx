@@ -5,24 +5,30 @@ import { motion } from 'framer-motion';
 
 const certificates = [
   {
-    title: 'Sertifikat Dicoding - Belajar Dasar Pemrograman Web',
-    description: 'Mempelajari HTML, CSS, dan JavaScript dasar dari Dicoding.',
-    image: '/images/certificates/web-dasar.png',
-    pdf: 'https://drive.google.com/your-pdf-link-1',
+  title: 'Sertifikat BackEnd',
+  image: './assets/sertifikat/MySkill/backend-development.jpg',
+  description: 'Pelatihan BackEnd tingkat lanjut',
+  pdf: 'assets/sertifikat/MySkill/BACKEND DEVELOPMENT INTRODUCTION 2.pdf',
   },
   {
-    title: 'Sertifikat RevoU - Mini Course Software Engineer',
-    description: 'Pengantar karir sebagai Software Engineer bersama RevoU.',
-    image: '/images/certificates/revou.png',
-    pdf: 'https://drive.google.com/your-pdf-link-2',
+  title: 'Sertifikat CyberLabs',
+  image: 'assets/sertifikat/Dion Ahza Rabbani-TTD.png',
+  description: 'Pelatihan JavaScript  Framework',
+  pdf: '/assets/sertifikat/MySkill/react.pdf',
   },
   {
-    title: 'Sertifikat Google - Cybersecurity Basics',
-    description: 'Dasar-dasar keamanan siber dari kursus Google.',
-    image: '/images/certificates/cybersecurity.png',
-    pdf: 'https://drive.google.com/your-pdf-link-3',
+  title: 'Sertifikat UI/UX',
+  image: '/assets/sertifikat/ui.jpg',
+  description: 'Workshop desain antarmuka dan pengalaman pengguna.',
+  pdf: '/assets/sertifikat/MySkill/uiux.pdf',
   },
-];
+  {
+  title: 'Sertifikat Agen Sakti',
+  image: '/assets/sertifikat/AgenSakti.png',
+  description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
+  pdf: '/assets/sertifikat/MySkill/uiux.pdf',
+  },
+  ]
 
 export default function CertificatePage() {
   const router = useRouter();
@@ -50,14 +56,14 @@ export default function CertificatePage() {
               />
               <h3 className="text-lg font-semibold mb-2">{cert.title}</h3>
               <p className="text-sm text-gray-300 mb-4">{cert.description}</p>
-              <a
+              {/* <a
                 href={cert.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-4 py-2 bg-[#C6F10E] text-black font-semibold rounded-md hover:bg-lime-400 transition"
               >
                 Lihat PDF
-              </a>
+              </a> */}
             </motion.div>
           ))}
         </div>
