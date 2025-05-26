@@ -265,14 +265,14 @@ export default function Home() {
             className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
           /> */}
           <Image
-            src="/assets/about/About-dion-3.jpeg"
+            src="/assets/about/about-dion-3.jpeg"
             alt="About Dion 3"
             width={300}
             height={300}
             className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
-            src="/assets/about/About-dion-4.jpeg"
+            src="/assets/about/about-dion-4.jpeg"
             alt="About Dion 4"
             width={300}
             height={300}
@@ -534,10 +534,10 @@ Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informas
     {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
       <Facebook size={20} />
     </a> */}
-    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+    <a href="https://github.com/DionAhza" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
       <Github size={20} />
     </a>
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
+    <a href="https://instagram.com/dionahza57" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
       <Instagram size={20} />
     </a>
     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C6F10E]">
