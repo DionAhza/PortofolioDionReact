@@ -22,7 +22,17 @@ export default function Home() {
    
    const [active, setActive] = useState(0);
    
-
+//logo skill
+const techLogos = [
+  { src: "https://cdn.simpleicons.org/react", alt: "React" },
+  { src: "https://cdn.simpleicons.org/javascript", alt: "JavaScript" },
+  { src: "https://cdn.simpleicons.org/laravel", alt: "Laravel" },
+  { src: "https://cdn.simpleicons.org/tailwindcss", alt: "Tailwind CSS" },
+  { src: "https://cdn.simpleicons.org/html5", alt: "HTML5" },
+  { src: "https://cdn.simpleicons.org/css3", alt: "CSS3" },
+  { src: "https://cdn.simpleicons.org/php", alt: "PHP" },
+  { src: "https://cdn.simpleicons.org/github", alt: "GitHub" },
+]
 
    //sertifikat
    const certificates = [
@@ -40,7 +50,7 @@ export default function Home() {
     },
     {
     title: 'Sertifikat UI/UX',
-    image: '/assets/sertifikat/ui.jpg',
+    image: '/assets/sertifikat/UI.jpg',
     description: 'Workshop desain antarmuka dan pengalaman pengguna.',
     pdf: '/assets/sertifikat/MySkill/uiux.pdf',
     },
@@ -90,7 +100,7 @@ export default function Home() {
 
     
     <div className=" mx-auto h-screen w-screen bg-[#19222D] ">
-     <section id="home" className="relative w-full">
+     <section id="home" className="relative w-full bg-[#19222D] ">
   <div className="pl-4 pr-4 md:pl-20">
     <motion.div
       className="fixed left-2 top-1/2 z-50"
@@ -99,7 +109,7 @@ export default function Home() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       style={{ translateY: "-50%" }}
     >
-      <div className="bg-[#1F2A38] rounded-xl p-3 flex flex-col items-center space-y-6 shadow-lg border border-[#2c3e50]">
+      <div className="hidden bg-[#1F2A38] rounded-xl p-3 sm:flex flex-col items-center space-y-6 shadow-lg border border-[#2c3e50]">
         {/* Icons */}
         {[["#home", <FaHome size={24} />], ["#about", <FaUser size={24} />], ["#projects", <FaProjectDiagram size={24} />], ["#sertifikat", <FaCertificate size={24} />], ["#contact", <FaEnvelope size={24} />]].map(([href, icon], idx) => (
           <a key={idx} href={href as string} className="text-white hover:text-[#C6F10E] transition-transform transform hover:scale-125">
@@ -142,6 +152,16 @@ export default function Home() {
                 />
               </div>
             </AnimatedContent>
+            {/* image jika di mobile */}
+  <div className="mx-0 flex sm:hidden justify-center bg-[#19222D] mt-2 w-full">
+  <img
+    src="/assets/GambarDion.png"
+    alt="Profil Dion"
+    className="w-64 h-auto rounded-lg shadow-md"
+  />
+</div>
+
+{/* End Gambar Mobile */}
           
             <div>
               <SplitText
@@ -173,8 +193,8 @@ export default function Home() {
             />
 
             {/* Social Icons */}
-            <motion.div
-  className="hidden sm:flex gap-6 mt-4"
+       <motion.div
+  className="flex sm:flex gap-6 mt-4 z-10 pointer-events-auto"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.2 }}
@@ -199,89 +219,100 @@ export default function Home() {
     href="https://github.com/DionAhza"
     target="_blank"
     rel="noopener noreferrer"
-    className="text-white hover:text-[#ccc] hover:scale-110 transition duration-300"
+    className="text-white hover:text-[rgb(175,175,175)] hover:scale-110 transition duration-300"
   >
     <FaGithub size={28} />
   </a>
 </motion.div>
 
-          </div>
+ 
+
+          </div> 
+        
         </div>
 
-        {/* Right Content */}
-        <div className="md:col-span-6 mt-8 md:mt-0 flex justify-center bg-[#19222D]">
-          <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
-        </div>
+ 
+
+{/* Versi Desktop: Tampilkan <Lanyard /> hanya di sm ke atas */}
+<div className="hidden sm:flex md:col-span-6 justify-center bg-[#19222D] mt-8 md:mt-0">
+  <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
+</div>
       </div>
     </div>
   </div>
 </section>
 
-      <section id="about" className="  min-h-screen bg-[#0F172A] mx-auto flex items-center justify-center px-4 py-20 pl-20 ">
-        <AnimatedSection>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden">
-        
-        {/* Text Area */}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, type: "spring" }}
-          className="text-white space-y-6"
-        >
-          <h2 className="text-4xl font-bold text-[#C6F10E]">About Me</h2>
-          <BlurText
-  text="I am a Full Stack Developer with expertise in Laravel and React. A graduate of SMK Wikrama Bogor, I have experience developing Blogger CMS websites during my internship and several other projects, including an online catalog website selling chairs and tables from used barrels."
-  delay={50}
-  animateBy="words"
-  direction="top"
-  // onAnimationComplete={handleAnimationComplete}
-  className="text-xl mb-8 text-white"
-/>
-<Link href="/about-detail">
-      <button className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">Learn More</button>
-    </Link>
+      <section id="about" className="  min-h-screen bg-[#0F172A] mx-auto flex items-center justify-center px-4 py-20 sm:pl-20 ">
+      <AnimatedSection>
+  <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 overflow-hidden">
 
-        </motion.div>
+    {/* Text Area */}
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, type: "spring" }}
+      viewport={{ once: true }}
+      className="text-white space-y-6"
+    >
+      <h2 className="text-4xl font-bold text-[#C6F10E]">About Me</h2>
 
-        {/* Images */}
-        <motion.div
-          initial={{ opacity: 0, x: 100, scale: 0.8 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1, type: "spring" }}
-          className="grid grid-cols-2 gap-4"
-        >
-          <Image
-            src="/assets/about/About-dion-1.jpeg"
-            alt="About Dion 1"
-            width={300}
-            height={300}
-            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-          />
-          {/* <Image
-            src="/assets/about/About-dion-2.jpeg"
-            alt="About Dion 2"
-            width={300}
-            height={300}
-            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-          /> */}
-          <Image
-            src="/assets/about/about-dion-3.jpeg"
-            alt="About Dion 3"
-            width={300}
-            height={300}
-            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-          />
-          <Image
-            src="/assets/about/about-dion-4.jpeg"
-            alt="About Dion 4"
-            width={300}
-            height={300}
-            className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-          />
-        </motion.div>
-      </div>
-      
-      </AnimatedSection>
+      <BlurText
+        text="I am a Full Stack Developer with expertise in Laravel and React. A graduate of SMK Wikrama Bogor, I have experience developing Blogger CMS websites during my internship and several other projects, including an online catalog website selling chairs and tables from used barrels."
+        delay={50}
+        animateBy="words"
+        direction="top"
+        className="text-lg md:text-xl text-white"
+      />
+
+      <Link href="/about-detail">
+        <button className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
+          Learn More
+        </button>
+      </Link>
+    </motion.div>
+
+    {/* Image Area */}
+    <motion.div
+      initial={{ opacity: 0, x: 100, scale: 0.8 }}
+      whileInView={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ duration: 1, type: "spring" }}
+      viewport={{ once: true }}
+      className="flex justify-center"
+    >
+      <motion.div
+        whileHover={{ scale: 1.05, rotate: 1 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        className="rounded-xl overflow-hidden shadow-xl"
+      >
+        <Image
+          src="/assets/about/About-dion-1.jpeg"
+          alt="About Dion"
+          width={350}
+          height={350}
+          className="rounded-xl object-cover"
+        />
+      </motion.div>
+    </motion.div>
+
+  </div>
+  <div className="overflow-hidden bg-[#0F172A] py-6">
+      <motion.div
+        className="flex space-x-8 items-center"
+        initial={{ x: "100%" }}
+        animate={{ x: "-100%" }}
+        transition={{
+          ease: "linear",
+          duration: 10,
+          repeat: Infinity,
+        }}
+      >
+        {techLogos.map((logo, index) => (
+          <img key={index} src={logo.src} alt={logo.alt} className="w-16 h-16" />
+        ))}
+      </motion.div>
+    </div>
+</AnimatedSection>
+
     </section>
     <section id="projects" className="min-h-screen bg-[#19222D] text-white py-20 pl-18">
   <div className="container mx-auto">
@@ -298,30 +329,33 @@ export default function Home() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       
       {/* Project Card */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
-        <img src="./assets/projects/UTII.jpg" alt="Project 1" className="w-full h-48 object-cover" />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Company Web </h3>
-          <p className="text-sm text-gray-300 mb-4">Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi.
-Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">JavaScript</span>
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">HTML</span>
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">PHP</span>
-          </div>
-          <a
-            href="https://uti.co.id"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#C6F10E] font-medium hover:underline"
-          >
-            Lihat di Website →
-          </a>
-        </div>
-      </div>
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
+  <img src="./assets/projects/UTII.jpg" alt="Project 1" className="w-full h-48 object-cover" />
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-semibold mb-2">Company Web</h3>
+    <p className="text-sm text-gray-300 mb-4">
+      Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi.
+      Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.
+    </p>
+    <div className="flex flex-wrap gap-2 mb-4">
+      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">JavaScript</span>
+      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">HTML</span>
+      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">PHP</span>
+    </div>
+    <a
+      href="https://uti.co.id"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#C6F10E] font-medium hover:underline"
+    >
+      Lihat di Website →
+    </a>
+  </div>
+</div>
+
 
       {/* Project 2 */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
         <img src="./assets/projects/Kasir.jpg" alt="Project 2" className="w-full h-48 object-cover" />
         <div className="p-6">
           <h3 className="text-xl font-semibold mb-2">Kasir App</h3>
@@ -342,7 +376,7 @@ Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informas
       </div>
 
       {/* Project 3 */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
         <img src="./assets/projects/Movies.jpeg" alt="Project 3" className="w-full h-48 object-cover" />
         <div className="p-6">
           <h3 className="text-xl font-semibold mb-2">Movie Rating App</h3>
