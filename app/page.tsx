@@ -153,7 +153,7 @@ const techLogos = [
               </div>
             </AnimatedContent>
             {/* image jika di mobile */}
-  <div className="mx-0 flex sm:hidden justify-center bg-[#19222D] mt-2 w-full">
+  <div className="mx-0 flex sm:hidden justify-center bg-[#19222D] mt-1 w-full">
   <img
     src="/assets/GambarDion.png"
     alt="Profil Dion"
@@ -314,10 +314,10 @@ const techLogos = [
 </AnimatedSection>
 
     </section>
-    <section id="projects" className="min-h-screen bg-[#19222D] text-white py-20 pl-18">
+    <section id="projects" className="min-h-screen bg-[#19222D] text-white py-20 px-8">
   <div className="container mx-auto">
     <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
-      <h2 className="text-4xl font-bold text-[#C6F10E] text-center ">
+      <h2 className="text-4xl font-bold text-[#C6F10E] text-center">
         My Projects
       </h2>
       <Link href="/project-detail">
@@ -326,80 +326,87 @@ const techLogos = [
         </button>
       </Link>
     </div>
+
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      
-      {/* Project Card */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
-  <img src="./assets/projects/UTII.jpg" alt="Project 1" className="w-full h-48 object-cover" />
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-semibold mb-2">Company Web</h3>
-    <p className="text-sm text-gray-300 mb-4">
-      Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi.
-      Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.
-    </p>
-    <div className="flex flex-wrap gap-2 mb-4">
-      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">JavaScript</span>
-      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">HTML</span>
-      <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">PHP</span>
-    </div>
-    <a
-      href="https://uti.co.id"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-[#C6F10E] font-medium hover:underline"
-    >
-      Lihat di Website →
-    </a>
-  </div>
-</div>
-
-
-      {/* Project 2 */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
-        <img src="./assets/projects/Kasir.jpg" alt="Project 2" className="w-full h-48 object-cover" />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Kasir App</h3>
-          <p className="text-sm text-gray-300 mb-4">Aplikasi kasir modern dengan fitur pencatatan transaksi dan manajemen stok.</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Laravel</span>
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Blade</span>
+      {[
+        {
+          title: "Company Web",
+          description:
+            "Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi. Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.",
+          imgSrc: "./assets/projects/UTII.jpg",
+          tags: ["JavaScript", "HTML", "PHP"],
+          link: "https://uti.co.id",
+        },
+        {
+          title: "Kasir App",
+          description:
+            "Aplikasi kasir modern dengan fitur pencatatan transaksi dan manajemen stok.",
+          imgSrc: "./assets/projects/Kasir.jpg",
+          tags: ["Laravel", "Blade"],
+          link: "https://github.com/DionAhza/UKK_Kasir_Dion",
+        },
+        {
+          title: "Movie Rating App",
+          description:
+            "Aplikasi pencarian dan penilaian film menggunakan API film dan Laravel backend.",
+          imgSrc: "./assets/projects/Movies.jpeg",
+          tags: ["Laravel", "React", "API"],
+          link: "https://github.com/DionAhza/Laravel-movies",
+        },
+      ].map((project, index) => (
+        <AnimatedContent
+          key={index}
+          distance={150}
+          direction="horizontal"
+          reverse={true}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1.1}
+          threshold={0.2}
+        >
+          <div className="bg-gradient-to-br from-[#1F2A38] to-[#101720] rounded-xl overflow-hidden shadow-xl shadow-black/20 hover:scale-105 transition-all duration-300 ease-in-out w-full max-w-sm mx-auto sm:max-w-md h-auto min-h-[400px] flex flex-col">
+            <img
+              src={project.imgSrc}
+              alt={project.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-semibold tracking-wide mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-gray-300 mb-4">{project.description}</p>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="p-6">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C6F10E] font-medium hover:underline"
+              >
+                Lihat Selengkapnya →
+              </a>
+            </div>
           </div>
-          <a
-            href="https://github.com/DionAhza/UKK_Kasir_Dion"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#C6F10E] font-medium hover:underline"
-          >
-            Lihat di GitHub →
-          </a>
-        </div>
-      </div>
-
-      {/* Project 3 */}
-      <div className="bg-[#1F2A38] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto sm:max-w-md">
-        <img src="./assets/projects/Movies.jpeg" alt="Project 3" className="w-full h-48 object-cover" />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Movie Rating App</h3>
-          <p className="text-sm text-gray-300 mb-4">Aplikasi pencarian dan penilaian film menggunakan API film dan Laravel backend.</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">Laravel</span>
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">React</span>
-            <span className="bg-[#C6F10E] text-[#19222D] px-3 py-1 text-xs rounded-full">API</span>
-          </div>
-          <a
-            href="https://github.com/DionAhza/Laravel-movies"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#C6F10E] font-medium hover:underline"
-          > Lihat di GitHub →
-          </a>
-           
-        </div>
-      </div>
-
+        </AnimatedContent>
+      ))}
     </div>
   </div>
 </section>
+
+
 <section id="sertifikat" className="bg-[#19222D] text-white py-16 px-4">
   <div className="max-w-xl mx-auto text-center">
     <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
