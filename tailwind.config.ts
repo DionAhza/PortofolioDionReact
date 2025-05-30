@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,7 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      scrollBehavior: ['responsive'],
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -17,4 +17,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

@@ -1,0 +1,22 @@
+{
+    "job": "I'm Ready For Job",
+    "home": "I'm a passionate Fullstack Developer based in Indonesia, skilled in both frontend and backend development. A proud graduate of SMK Wikrama Bogor, I specialize in building responsive, user-friendly, and efficient web applications using modern technologies. With a strong commitment to continuous learning and delivering high-quality code, I strive to turn ideas into impactful digital solutions.",
+    "about-head": "About",
+    "about-body":"I am a Full Stack Developer with expertise in Laravel and React. A graduate of SMK Wikrama Bogor, I have experience developing Blogger CMS websites during my internship and several other projects, including an online catalog website selling chairs and tables from used barrels.",
+    "about-button": "Learn More",
+    "project-head": "My Projects",
+    "button": "See More",
+    "uti-desc":"I have contributed to the development of the official website of PT. United Teknologii Integrasi. This website is designed to display the company profile, services, and contact information professionally.",
+    "kasir-desc":"Modern cashier application with transaction recording and stock management features.",
+    "movie-desc":"Movie search and rating application using movie API and Laravel backend.",
+    "cert-head": "My Certificate",
+    "cert-button-r":"Next",
+    "cert-button-l":"Previous",
+
+
+    "footer-contact": "Contact",
+    "footer-address": "Address",
+    "footer-number": "Number"
+    
+
+}

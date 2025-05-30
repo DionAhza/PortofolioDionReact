@@ -18,7 +18,7 @@ const certificates = [
   },
   {
   title: 'Sertifikat UI/UX',
-  image: '/assets/sertifikat/ui.jpg',
+  image: '/assets/sertifikat/UI.jpg',
   description: 'Workshop desain antarmuka dan pengalaman pengguna.',
   pdf: '/assets/sertifikat/MySkill/uiux.pdf',
   },

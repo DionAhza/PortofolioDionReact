@@ -1,0 +1,15 @@
+{
+    "job": "Saya Siap Untuk Bekerja",
+    "home": "Saya adalah Pengembang Fullstack yang berdedikasi yang berbasis di Indonesia, terampil dalam pengembangan frontend dan backend. Lulusan bangga dari SMK Wikrama Bogor, saya mengkhususkan diri dalam membangun aplikasi web yang responsif, ramah pengguna, dan efisien menggunakan teknologi modern. Dengan komitmen yang kuat untuk pembelajaran berkelanjutan dan memberikan kode berkualitas tinggi, saya berusaha untuk mengubah ide menjadi solusi digital yang berdampak.",
+    "about-head": "Tentang",
+    "about-body": "Saya adalah Pengembang Full Stack dengan keahlian dalam Laravel dan React. Lulusan SMK Wikrama Bogor, saya memiliki pengalaman mengembangkan situs Blogger CMS selama magang dan beberapa proyek lainnya, termasuk situs katalog online yang menjual kursi dan meja dari drum bekas.",
+    "about-button": "Pelajari Lebih Lanjut",
+    "project-head": "Proyek Saya",
+    "button": "Lihat Lebih Banyak",
+    "uti-desc": "Saya telah berkontribusi dalam pengembangan situs resmi PT. United Teknologi Integrasi. Situs ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.",
+    "kasir-desc": "Aplikasi kasir modern dengan fitur pencatatan transaksi dan manajemen stok.",
+    "movie-desc": "Aplikasi pencarian dan penilaian film menggunakan API film dan backend Laravel.",
+    "cert-head": "Sertifikat Saya",
+    "cert-button-r": "Berikutnya",
+    "cert-button-l": "Sebelumnya"
+}

@@ -16,10 +16,13 @@ import { FaFolder, FaFolderOpen } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { Facebook, Instagram, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
+import Navbar from "./components/Navbar/Navbar";
+import i18n from "@/i18n";
 
 
 export default function Home() {
    
+  
    const [active, setActive] = useState(0);
    
 //logo skill
@@ -39,25 +42,25 @@ const techLogos = [
     {
     title: 'Sertifikat BackEnd',
     image: './assets/sertifikat/MySkill/backend-development.jpg',
-    description: 'Pelatihan BackEnd tingkat lanjut',
+    // description: 'Pelatihan BackEnd tingkat lanjut',
     pdf: 'assets/sertifikat/MySkill/BACKEND DEVELOPMENT INTRODUCTION 2.pdf',
     },
     {
     title: 'Sertifikat CyberLabs',
     image: 'assets/sertifikat/Dion Ahza Rabbani-TTD.png',
-    description: 'Pelatihan JavaScript  Framework',
+    // description: 'Pelatihan JavaScript  Framework',
     pdf: '/assets/sertifikat/MySkill/react.pdf',
     },
     {
     title: 'Sertifikat UI/UX',
     image: '/assets/sertifikat/UI.jpg',
-    description: 'Workshop desain antarmuka dan pengalaman pengguna.',
+    // description: 'Workshop desain antarmuka dan pengalaman pengguna.',
     pdf: '/assets/sertifikat/MySkill/uiux.pdf',
     },
     {
     title: 'Sertifikat Agen Sakti',
     image: '/assets/sertifikat/AgenSakti.png',
-    description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
+    // description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
     pdf: '/assets/sertifikat/MySkill/uiux.pdf',
     },
     ]
@@ -100,6 +103,7 @@ const techLogos = [
 
     
     <div className=" mx-auto h-screen w-screen bg-[#19222D] ">
+        <Navbar />
      <section id="home" className="relative w-full bg-[#19222D] ">
   <div className="pl-4 pr-4 md:pl-20">
     <motion.div
@@ -136,8 +140,8 @@ const techLogos = [
               scale={1.1}
               threshold={0.2}
             >
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-                <h1 className="text-xl sm:text-2xl text-white font-bold">I'm Ready For Job</h1>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:mt-2 mt-20">
+                <h1 className="text-xl sm:text-2xl text-white font-bold">{i18n.t('job')}</h1>
                 <RotatingText
                   texts={['FULLSTACK DEVELOPER', 'WEB DEVELOPER', 'WEB DESIGN', 'WORDPRESS']}
                   mainClassName="px-4 bg-[#C6F10E] text-black py-1 rounded-lg text-xl sm:text-2xl font-bold inline-flex transition-all mb-3"
@@ -185,7 +189,7 @@ const techLogos = [
             </div>
 
             <BlurText
-              text="I'm a passionate Fullstack Developer based in Indonesia, skilled in both frontend and backend development. A proud graduate of SMK Wikrama Bogor, I specialize in building responsive, user-friendly, and efficient web applications using modern technologies. With a strong commitment to continuous learning and delivering high-quality code, I strive to turn ideas into impactful digital solutions."
+              text={i18n.t("home")}
               delay={50}
               animateBy="words"
               direction="top"
@@ -254,10 +258,10 @@ const techLogos = [
       viewport={{ once: true }}
       className="text-white space-y-6"
     >
-      <h2 className="text-4xl font-bold text-[#C6F10E]">About Me</h2>
+      <h2 className="text-4xl font-bold text-[#C6F10E]">{i18n.t("about-head")}</h2>
 
       <BlurText
-        text="I am a Full Stack Developer with expertise in Laravel and React. A graduate of SMK Wikrama Bogor, I have experience developing Blogger CMS websites during my internship and several other projects, including an online catalog website selling chairs and tables from used barrels."
+        text={i18n.t("about-body")}
         delay={50}
         animateBy="words"
         direction="top"
@@ -266,7 +270,7 @@ const techLogos = [
 
       <Link href="/about-detail">
         <button className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
-          Learn More
+        {i18n.t("about-button")}
         </button>
       </Link>
     </motion.div>
@@ -318,11 +322,11 @@ const techLogos = [
   <div className="container mx-auto">
     <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
       <h2 className="text-4xl font-bold text-[#C6F10E] text-center">
-        My Projects
+        {i18n.t("project-head")}
       </h2>
       <Link href="/project-detail">
         <button className="px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
-          See more
+          {i18n.t("button")}
         </button>
       </Link>
     </div>
@@ -331,8 +335,7 @@ const techLogos = [
       {[
         {
           title: "Company Web",
-          description:
-            "Saya pernah berkontribusi dalam pengembangan website resmi milik PT. United Teknologii Integrasi. Website ini dirancang untuk menampilkan profil perusahaan, layanan, dan informasi kontak secara profesional.",
+          description: i18n.t("uti-desc"),
           imgSrc: "./assets/projects/UTII.jpg",
           tags: ["JavaScript", "HTML", "PHP"],
           link: "https://uti.co.id",
@@ -340,7 +343,7 @@ const techLogos = [
         {
           title: "Kasir App",
           description:
-            "Aplikasi kasir modern dengan fitur pencatatan transaksi dan manajemen stok.",
+            i18n.t("kasir-desc"),
           imgSrc: "./assets/projects/Kasir.jpg",
           tags: ["Laravel", "Blade"],
           link: "https://github.com/DionAhza/UKK_Kasir_Dion",
@@ -348,7 +351,7 @@ const techLogos = [
         {
           title: "Movie Rating App",
           description:
-            "Aplikasi pencarian dan penilaian film menggunakan API film dan Laravel backend.",
+           i18n.t('movie-desc'),
           imgSrc: "./assets/projects/Movies.jpeg",
           tags: ["Laravel", "React", "API"],
           link: "https://github.com/DionAhza/Laravel-movies",
@@ -396,7 +399,7 @@ const techLogos = [
                 rel="noopener noreferrer"
                 className="text-[#C6F10E] font-medium hover:underline"
               >
-                Lihat Selengkapnya →
+                {i18n.t("button")} →
               </a>
             </div>
           </div>
@@ -411,11 +414,11 @@ const techLogos = [
   <div className="max-w-xl mx-auto text-center">
     <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
       <h2 className="text-3xl font-bold text-[#C6F10E] text-center md:text-left">
-        Sertifikat Saya
+        {i18n.t("cert-head")}
       </h2>
       <Link href="/certificates-detail">
         <button className="px-6 py-2 bg-[#C6F10E] text-[#19222D] font-semibold rounded-md hover:bg-lime-400 transition">
-          See More
+          {i18n.t("button")}
         </button>
       </Link>
     </div>
@@ -442,9 +445,9 @@ const techLogos = [
               className="w-full h-64 object-contain mb-4"
             />
             <h3 className="text-lg font-semibold mb-2">{certificates[active].title}</h3>
-            <p className="text-sm text-gray-300 mb-4">
+            {/* <p className="text-sm text-gray-300 mb-4">
               {certificates[active].description}
-            </p>
+            </p> */}
             {/* <a
               href={certificates[active].pdf}
               target="_blank"
@@ -477,13 +480,13 @@ const techLogos = [
         onClick={prev}
         className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md"
       >
-        Previous
+        {i18n.t("cert-button-l")}
       </button>
       <button
         onClick={next}
         className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md"
       >
-        Next
+        {i18n.t("cert-button-r")}
       </button>
     </div>
   </div>
@@ -539,7 +542,7 @@ const techLogos = [
   </div>
 </section>
 {/* Footer */}
-<footer className="bg-[#0F1A25] text-gray-400 py-10 px-6 text-sm"> <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left"> {/* Kontak */} <div> <h3 className="text-white font-semibold mb-2">Kontak</h3> <p>Alamat: Cigombong, Bogor</p> <p>Nomor: 089639154877</p> <p> Email:{' '} <a href="mailto:dionahza15@gmail.com" className="underline hover:text-[#C6F10E]" > dionahza15@gmail.com </a> </p> </div>
+<footer className="bg-[#0F1A25] text-gray-400 py-10 px-6 text-sm"> <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left"> {/* Kontak */} <div> <h3 className="text-white font-semibold mb-2">{i18n.t("footer-contact")}</h3> <p>{i18n.t("footer-address")}: Cigombong, Bogor</p> <p>{i18n.t("footer-number")}: 089639154877</p> <p> Email:{' '} <a href="mailto:dionahza15@gmail.com" className="underline hover:text-[#C6F10E]" > dionahza15@gmail.com </a> </p> </div>
 
 {/* Quick Links */}
 <div>

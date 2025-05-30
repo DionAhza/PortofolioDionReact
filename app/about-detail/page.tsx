@@ -1,15 +1,18 @@
 "use client"; // penting untuk pakai useRouter di app router Next.js
 
 import React from "react";
+
 import { useRouter } from "next/navigation";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Navbar from "../components/Navbar/Navbar";
 
 export default function AboutDetail() {
   const router = useRouter();
 
   return (
-    <main className="mx-auto min-h-screen  bg-[#19222D] text-white p-8  shadow-lg ">
+    <main className="mx-auto min-h-screen  bg-[#19222D] text-white p-8  shadow-lg mt-10">
+      <Navbar/>
       <h1 className="text-4xl font-bold text-[#C6F10E] mb-10 text-center">
         Detail Tentang Saya
       </h1>

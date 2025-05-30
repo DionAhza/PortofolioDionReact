@@ -15,11 +15,16 @@ body {
   --foreground: #171717;
 }
 
+.dark{
+  --background: #19222D;
+  --foreground: #ffffff;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+
 }
 
 body {
