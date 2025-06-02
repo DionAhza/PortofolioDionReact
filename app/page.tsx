@@ -35,6 +35,8 @@ const techLogos = [
   { src: "https://cdn.simpleicons.org/css3", alt: "CSS3" },
   { src: "https://cdn.simpleicons.org/php", alt: "PHP" },
   { src: "https://cdn.simpleicons.org/github", alt: "GitHub" },
+  { src: "https://cdn.simpleicons.org/.net", alt: ".NET" },
+  { src: "https://cdn.simpleicons.org/next.js", alt: "NEXT.JS" },
 ]
 
    //sertifikat
@@ -63,6 +65,18 @@ const techLogos = [
     // description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
     pdf: '/assets/sertifikat/MySkill/uiux.pdf',
     },
+    {
+      title: 'Sertifikat Dasar Java',
+      image: 'assets/sertifikat/dasar_java.png',
+      // description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
+      pdf: 'assets/sertifikat/dasar_java.png',
+      },
+    {
+      title: 'Sertifikat Dasar Pemograman',
+      image: 'assets/sertifikat/Dasar_pemograman.png',
+      // description: 'Peserta seminar literasi Digital dalam Rangka hari Kebangkitan Nasional 2024 bertema Jadi Gen SAKTI(Siap Adaptif Kerja dengan Teknologi Informasi) yang diselenggarakan oleh Relawan TIK Kota Bogor',
+      pdf: 'assets/sertifikat/Dasar_pemograman.pdf',
+      },
     ]
     
     

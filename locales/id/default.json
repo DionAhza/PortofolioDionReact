@@ -11,5 +11,13 @@
     "movie-desc": "Aplikasi pencarian dan penilaian film menggunakan API film dan backend Laravel.",
     "cert-head": "Sertifikat Saya",
     "cert-button-r": "Berikutnya",
-    "cert-button-l": "Sebelumnya"
+    "cert-button-l": "Sebelumnya",
+
+    "footer-contact": "Kontak",
+    "footer-address": "Alamat",  
+    "footer-number": "Nomor",
+
+    "detail-saya": "Detail Tentang Saya",
+    "detail-pengalaman": "pengalaman",
+    "detail-magang": "Magang Di PT Solusi Aplikasi Integrasi"
 }

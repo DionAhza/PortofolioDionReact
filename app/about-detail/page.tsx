@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navbar from "../components/Navbar/Navbar";
+import i18n from "@/i18n";
 
 export default function AboutDetail() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function AboutDetail() {
     <main className="mx-auto min-h-screen  bg-[#19222D] text-white p-8  shadow-lg mt-10">
       <Navbar/>
       <h1 className="text-4xl font-bold text-[#C6F10E] mb-10 text-center">
-        Detail Tentang Saya
+        {i18n.t("detail-saya")}
       </h1>
       
       
@@ -25,7 +26,7 @@ export default function AboutDetail() {
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
   >
-    Pengalaman
+    {i18n.t("detail-pengalaman")}
   </motion.h2>
   
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -43,7 +44,7 @@ export default function AboutDetail() {
         transition={{ type: 'spring', stiffness: 50 }}
       >
 
-        <h3 className="text-xl font-semibold mb-3">Internship di PT Solusi Aplikasi</h3>
+        <h3 className="text-xl font-semibold mb-3">{i18n.t("detail-magang")}</h3>
         
         <ul className="list-disc ml-5 text-[#C6F10E]/90 space-y-2">
           <li>Mengembangkan situs web perusahaan dengan CMS, HTML, CSS, dan JavaScript</li>

@@ -16,7 +16,12 @@
 
     "footer-contact": "Contact",
     "footer-address": "Address",
-    "footer-number": "Number"
+    "footer-number": "Number",
+
+    "detail-saya": "About Me",
+    "detail-pengalaman": "Experience",
+    "detail-magang": "Internship At PT Solusi Aplikasi Integrasi"
+
     
 
 }
