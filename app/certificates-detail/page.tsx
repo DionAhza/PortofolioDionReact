@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Navbar from '../components/Navbar/Navbar';
 
 const certificates = [
   {
@@ -49,13 +50,13 @@ const certificates = [
   },
   {
     title: 'Sertifikat Salam & Perkenalan Bahasa Korea',
-    image: 'assets/sertifikat/MySkill/korea-2.jpg',
+    image: 'assets/sertifikat/MySkill/Korea-2.jpg',
     pdf: 'assets/sertifikat/Dasar_pemograman.pdf',
     category: 'Language',
   },
   {
     title: 'Sertifikat Kata Benda dan Sifat Korea',
-    image: 'assets/sertifikat/MySkill/korea-3.jpg',
+    image: 'assets/sertifikat/MySkill/Korea-3.jpg',
     pdf: 'assets/sertifikat/Dasar_pemograman.pdf',
     category: 'Language',
   },
@@ -73,10 +74,12 @@ export default function CertificatePage() {
       : certificates.filter(cert => cert.category === activeCategory);
 
   return (
-    <section className="min-h-screen bg-[#19222D] text-white py-16 px-4">
+    
+    <section className="min-h-screen bg-[#19222D] text-white py-16 px-4 mt-4">
+      <Navbar/>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-[#C6F10E] mb-10">
-          Sertifikat Saya
+          My Certificate
         </h2>
 
         {/* Tabs */}

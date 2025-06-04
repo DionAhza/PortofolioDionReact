@@ -1,5 +1,6 @@
 'use client';
 import Image from "next/image";
+import React from "react";    
 import { useState, useRef, useEffect } from 'react';
 import Lanyard from "./components/Lanyard/Lanyard";
 import RotatingText from "./components/RotatingText/RotatingText";
@@ -24,6 +25,43 @@ export default function Home() {
    
   
    const [active, setActive] = useState(0);
+
+  //  Contact
+  const [result, setResult] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setLoading(true)
+    setResult('') // Kosongkan result dulu
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    formData.append('access_key', 'b66c57db-fe25-4ec7-b4a7-9394fe7634ab')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult('✅ Form berhasil dikirim.')
+        form.reset()
+      } else {
+        setResult('❌ Gagal mengirim: ' + data.message)
+        console.error('Web3Forms Error:', data)
+      }
+    } catch (error) {
+      console.error('Submit error:', error)
+      setResult('❌ Terjadi kesalahan saat mengirim.')
+    }
+
+    setLoading(false)
+  }
    
 //logo skill
 const techLogos = [
@@ -32,7 +70,7 @@ const techLogos = [
   { src: "https://cdn.simpleicons.org/laravel", alt: "Laravel" },
   { src: "https://cdn.simpleicons.org/tailwindcss", alt: "Tailwind CSS" },
   { src: "https://cdn.simpleicons.org/html5", alt: "HTML5" },
-  { src: "https://cdn.simpleicons.org/css3", alt: "CSS3" },
+  { src: "https://cdn.simpleicons.org/css", alt: "CSS3" },
   { src: "https://cdn.simpleicons.org/php", alt: "PHP" },
   { src: "https://cdn.simpleicons.org/github", alt: "GitHub" },
   { src: "https://cdn.simpleicons.org/.net", alt: ".NET" },
@@ -318,7 +356,7 @@ const techLogos = [
         className="flex space-x-8 items-center"
         initial={{ x: "100%" }}
         animate={{ x: "-100%" }}
-        transition={{
+        transition={{    
           ease: "linear",
           duration: 10,
           repeat: Infinity,
@@ -507,52 +545,57 @@ const techLogos = [
 </section>
 
 {/* Section Contact */}
-<section className="bg-[#101820] text-white py-20 px-6">
+<section id="contact" className="bg-[#101820] text-white py-20 px-6">
   <div className="max-w-2xl mx-auto text-center">
     <h2 className="text-3xl font-bold text-[#C6F10E] mb-6">Hubungi Saya</h2>
     <p className="text-gray-300 mb-8">Silakan tinggalkan pesan jika ada pertanyaan atau kerja sama.</p>
 
-    <form
-      onSubmit={(e) => {
-        e.preventDefault()
-        alert('Pesan berhasil dikirim!')
-        setFormData({ name: '', email: '', message: '' })
-      }}
-      className="space-y-4 text-left"
-    >
+    <div>
+    <form onSubmit={onSubmit} className="space-y-4 text-white">
       <input
         type="text"
         name="name"
-        placeholder="Nama Anda"
-        value={formData.name}
-        onChange={handleChange}
         required
+        placeholder="Nama Anda"
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <input
         type="email"
         name="email"
-        placeholder="Email Anda"
-        value={formData.email}
-        onChange={handleChange}
         required
+        placeholder="Email Anda"
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <textarea
         name="message"
-        placeholder="Pesan"
-        value={formData.message}
-        onChange={handleChange}
         required
+        placeholder="Pesan"
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <button
         type="submit"
-        className="bg-[#C6F10E] text-black font-semibold px-6 py-3 rounded-lg hover:bg-lime-400 transition-all duration-300"
+        disabled={loading}
+        className={`w-full bg-[#C6F10E] text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 ${
+          loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-lime-400'
+        }`}
       >
-        Kirim Pesan
+        {loading ? 'Mengirim...' : 'Kirim Pesan'}
       </button>
+
+      {result && (
+        <p
+          className={`text-sm transition-opacity duration-300 ${
+            result.includes('✅') ? 'text-green-400' : 'text-red-400'
+          }`}
+        >
+          {result}
+        </p>
+      )}
     </form>
+      
+
+    </div>
+
   </div>
 </section>
 {/* Footer */}

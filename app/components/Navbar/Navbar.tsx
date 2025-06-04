@@ -79,19 +79,19 @@ const Navbar = () => {
             </button> 
             {isOpen && (
         <div className="absolute top-12 left-0 right-0 bg-gray-900 text-white flex flex-col space-y-4 p-4 shadow-lg z-50 rounded-md">
-          <a href="#home" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#home" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             Home
           </a>
-          <a href="#about" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#about" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             About
           </a>
-          <a href="#project" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#project" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             Project
           </a>
-          <a href="#sertifikat" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#sertifikat" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             Sertifikat
           </a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#contact" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             Contact
           </a>
         </div>
