@@ -13,6 +13,13 @@
     "cert-button-r":"Next",
     "cert-button-l":"Previous",
 
+    "contact-us":"Contact Us",
+    "contact-body":"Please leave a message ",
+    "contact-yourname":"Your Name",
+    "contact-youremail":"Your Email",
+    "contact-message":"Message",
+    "contact-send":"Sending Message",
+
 
     "footer-contact": "Contact",
     "footer-address": "Address",

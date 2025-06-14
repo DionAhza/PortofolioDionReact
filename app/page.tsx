@@ -5,16 +5,12 @@ import { useState, useRef, useEffect } from 'react';
 import Lanyard from "./components/Lanyard/Lanyard";
 import RotatingText from "./components/RotatingText/RotatingText";
 import BlurText from "./components/BlurText/BlurText";
-import DecryptedText from "./components/DecryptedText/DecryptedText";
 import SplitText from "./components/SplitText/SplitText";
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
 import AnimatedSection from "./components/AnimatedContent/AnimatedSection";
-import Threads from "./components/Threads/Threads";
 import { FaUser, FaProjectDiagram, FaCertificate, FaEnvelope , FaHome } from "react-icons/fa";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
-import { FaFolder, FaFolderOpen } from 'react-icons/fa';
-import { useRouter } from 'next/router';
 import { Facebook, Instagram, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from "./components/Navbar/Navbar";
@@ -547,8 +543,8 @@ const techLogos = [
 {/* Section Contact */}
 <section id="contact" className="bg-[#101820] text-white py-20 px-6">
   <div className="max-w-2xl mx-auto text-center">
-    <h2 className="text-3xl font-bold text-[#C6F10E] mb-6">Hubungi Saya</h2>
-    <p className="text-gray-300 mb-8">Silakan tinggalkan pesan jika ada pertanyaan atau kerja sama.</p>
+    <h2 className="text-3xl font-bold text-[#C6F10E] mb-6">{i18n.t("contact-us")}</h2>
+    <p className="text-gray-300 mb-8">{i18n.t("contact-body")}</p>
 
     <div>
     <form onSubmit={onSubmit} className="space-y-4 text-white">
@@ -556,20 +552,20 @@ const techLogos = [
         type="text"
         name="name"
         required
-        placeholder="Nama Anda"
+        placeholder={i18n.t("contact-yourname")}
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <input
         type="email"
         name="email"
         required
-        placeholder="Email Anda"
+        placeholder={i18n.t("contact-youremail")}
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <textarea
         name="message"
         required
-        placeholder="Pesan"
+        placeholder={i18n.t("contact-message")}
         className="w-full p-3 rounded-lg bg-[#1A2A37] border border-gray-600 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#C6F10E]"
       />
       <button
@@ -579,7 +575,7 @@ const techLogos = [
           loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-lime-400'
         }`}
       >
-        {loading ? 'Mengirim...' : 'Kirim Pesan'}
+        {loading ? 'Mengirim...' : i18n.t("contact-send") }
       </button>
 
       {result && (
