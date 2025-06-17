@@ -26,5 +26,15 @@
 
     "detail-saya": "Detail Tentang Saya",
     "detail-pengalaman": "pengalaman",
-    "detail-magang": "Magang Di PT Solusi Aplikasi Integrasi"
+    "detail-magang": "Magang Di PT Solusi Aplikasi Integrasi",
+    "detail-skills": "Keahlian",
+    "detail-education": "Riwayat Pendidikan",
+    "detail-school": "SMK Wikrama Bogor (2022–2025)",
+    "detail-jurusan": "Pengembangan Perangkat Lunak dan Gim",
+    "detail-nilai": "Nilai Rata-rata: 85/100",
+    "detail-mapel": "Mata Pelajaran Relevan: Mempelajari pemrograman, desain, dan algoritma untuk membuat berbagai jenis perangkat lunak seperti aplikasi, website, dan game.",
+    "detail-magang-point1": "Mengembangkan situs web perusahaan dengan CMS, HTML, CSS, dan JavaScript",
+    "detail-magang-point2": "Mendesain poster menggunakan Canva dengan pendekatan visual yang menarik",
+    "detail-magang-point3": "Pengembang WordPress, menyesuaikan tema dan plugin sesuai kebutuhan",
+    "detail-magang-point4": "Membangun API situs web E-Commerce dengan Laravel dan React.js untuk sistem yang responsif"
 }

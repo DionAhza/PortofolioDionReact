@@ -27,7 +27,17 @@
 
     "detail-saya": "About Me",
     "detail-pengalaman": "Experience",
-    "detail-magang": "Internship At PT Solusi Aplikasi Integrasi"
+    "detail-magang": "Internship At PT Solusi Aplikasi Integrasi",
+    "detail-skills": "Skills",
+    "detail-education": "Education History",
+    "detail-school": "SMK Wikrama Bogor (2022–2025)",
+    "detail-jurusan": "Software and Game Development",
+    "detail-nilai": "Average Score: 85/100",
+    "detail-mapel": "Relevant Subjects: Learned programming, design, and algorithms to build various types of software such as applications, websites, and games.",
+    "detail-magang-point1": "Developed the company website using CMS, HTML, CSS, and JavaScript",
+    "detail-magang-point2": "Designed posters using Canva with an engaging visual approach",
+    "detail-magang-point3": "Developed WordPress, customizing themes and plugins as needed",
+    "detail-magang-point4": "Built an E-Commerce website API using Laravel and React.js for a responsive system"
 
     
 

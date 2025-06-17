@@ -15,6 +15,7 @@ import { Facebook, Instagram, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from "./components/Navbar/Navbar";
 import i18n from "@/i18n";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
@@ -147,6 +148,20 @@ const techLogos = [
   }
   
   //endcontact
+
+
+  //about animation
+  const [isClicked, setIsClicked] = useState(false);
+  const router = useRouter();
+  
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => {
+      router.push("/about-detail"); // atau window.location.href = "/about-detail"
+    }, 300); // delay 300ms biar animasinya terlihat
+  };
+  
+  //endabout animation
   return (
 
     
@@ -243,13 +258,19 @@ const techLogos = [
               direction="top"
               className="text-base sm:text-lg text-white"
             />
-
+            <motion.div
+            className="z-10 pointer-events-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.6, delay: 0.2 }}>
+          <a href="./assets/CV Dion Ahza Rabbani  (2).pdf" target="_blank" className="px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
+           Download CV
+        </a>
+        </motion.div>
             {/* Social Icons */}
        <motion.div
   className="flex sm:flex gap-6 mt-4 z-10 pointer-events-auto"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
+  
 >
   <a
     href="https://instagram.com/dionahza57"
@@ -316,11 +337,16 @@ const techLogos = [
         className="text-lg md:text-xl text-white"
       />
 
-      <Link href="/about-detail">
-        <button className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition">
+      <motion.button
+        onClick={handleClick}
+        className="mt-6 px-6 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg hover:bg-yellow-400 transition"
+        animate={isClicked ? { scale: 1.1, opacity: 0.8 } : { scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         {i18n.t("about-button")}
-        </button>
-      </Link>
+      </motion.button>
+
+
     </motion.div>
 
     {/* Image Area */}
@@ -338,10 +364,10 @@ const techLogos = [
       >
         <Image
           src="/assets/about/About-dion-1.jpeg"
-          alt="About Dion"
           width={350}
           height={350}
           className="rounded-xl object-cover"
+          alt="About Dion"
         />
       </motion.div>
     </motion.div>
@@ -365,7 +391,187 @@ const techLogos = [
     </div>
 </AnimatedSection>
 
+
     </section>
+    <section className="bg-[#19222D] text-white p-8 shadow-lg sm:pl-20">
+      
+
+      {/* Pengalaman */}
+      <section id="experience" className="mb-16 px-4 sm:px-0">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold mb-10 border-b-4 border-[#C6F10E] inline-block pb-2"
+        >
+          {i18n.t("detail-pengalaman")}
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Timeline Pengalaman */}
+          <motion.ul
+            className="relative border-l-4 border-[#C6F10E] pl-6 space-y-6 text-base"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+          >
+            <motion.li
+              className="relative pb-6"
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ type: "spring", stiffness: 50 }}
+            >
+              <h3 className="text-xl font-semibold mb-3">
+                {i18n.t("detail-magang")}
+              </h3>
+              <ul className="list-disc ml-5 text-[#C6F10E]/90 space-y-2">
+                <li>
+                  {i18n.t("detail-magang-point1")}
+                </li>
+                <li>
+                {i18n.t("detail-magang-point2")}
+                </li>
+                <li>
+                {i18n.t("detail-magang-point3")}
+                </li>
+                <li>
+                {i18n.t("detail-magang-point4")}
+                </li>
+              </ul>
+            </motion.li>
+          </motion.ul>
+
+          {/* Sertifikat */}
+          <motion.div
+            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <a
+              href="/assets/sertifikat/SURAT KETERANGAN PKL DION AHZA RABBANI.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/assets/sertifikat/SURAT KETERANGAN PKL DION AHZA RABBANI_page-0001.jpg"
+                alt="Sertifikat PKL"
+                className="w-64 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skill */}
+      <section id="skills" className="mb-12">
+        <h2 className="text-3xl font-semibold mb-6 border-b border-[#C6F10E] pb-2">
+          {i18n.t("detail-skills")}
+        </h2>
+        <div className="flex flex-wrap gap-4 text-lg">
+          {[
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "JavaScript",
+            "Laravel",
+            "WordPress",
+            "Python",
+            "Docker"
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="bg-[#C6F10E] text-[#19222D] px-5 py-2 rounded-full font-semibold transition-transform hover:scale-105 cursor-default"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Pendidikan */}
+      <section id="education" className="mb-12 px-4 sm:px-0">
+        <motion.h2
+          className="text-3xl font-semibold mb-6 border-b-4 border-[#C6F10E] pb-2"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {i18n.t("detail-education")}
+        </motion.h2>
+
+        <motion.div
+          className="p-6 rounded-lg shadow-lg"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.p
+            className="text-xl font-bold text-[#C6F10E]"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            SMK Wikrama Bogor (2022-2025)
+          </motion.p>
+
+          <motion.p
+            className="ml-2"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+           {i18n.t("detail-jurusan")}
+          </motion.p>
+
+          <motion.ul
+            className="list-disc list-inside space-y-3 text-lg mt-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+          >
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ type: "spring", stiffness: 50 }}
+            >
+             {i18n.t("detail-nilai")}
+            </motion.li>
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ type: "spring", stiffness: 50 }}
+            >
+              {i18n.t("detail-mapel")}
+            </motion.li>
+          </motion.ul>
+        </motion.div>
+      </section>
+
+      {/* Tombol Kembali */}
+      {/* <div className="text-center">
+        <Link href="/">
+          <button className="mt-6 px-8 py-3 bg-[#C6F10E] text-[#19222D] font-semibold rounded-lg shadow-md hover:bg-[#a5be0a] transition-colors">
+            Kembali
+          </button>
+        </Link>
+      </div> */}
+    </section>
+
     <section id="projects" className="min-h-screen bg-[#19222D] text-white py-20 px-8">
   <div className="container mx-auto">
     <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">

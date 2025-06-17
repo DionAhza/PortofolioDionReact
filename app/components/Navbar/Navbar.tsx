@@ -113,7 +113,7 @@ const Navbar = () => {
           <a href="/#about" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             About
           </a>
-          <a href="/#project" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
+          <a href="/#projects" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
             Project
           </a>
           <a href="/#sertifikat" onClick={() => setIsOpen(false)} className="hover:text-blue-400">
