@@ -13,6 +13,7 @@ import { FaUser, FaProjectDiagram, FaCertificate, FaEnvelope , FaHome } from "re
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Facebook, Instagram, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
+import Head from 'next/head';
 import Navbar from "./components/Navbar/Navbar";
 import i18n from "@/i18n";
 import { useRouter } from "next/navigation";
@@ -166,6 +167,12 @@ const techLogos = [
 
     
     <div className=" mx-auto h-screen w-screen bg-[#19222D] ">
+       <Head>
+       <meta name="description" content="Website portofolio Dion Ahza Rabbani - Web Developer Indonesia" />
+        <meta name="keywords" content="Dion Ahza, Dion Ahza Rabbani , Portofolio, Web Developer,FullStack Developer Indonesia , Web Developer Indonesia " />
+        <meta name="author" content="Dion Ahza Rabbani" />
+        <meta name="robots" content="index, follow" />
+      </Head>
         <Navbar />
      <section id="home" className="relative w-full bg-[#19222D] ">
   <div className="pl-4 pr-4 md:pl-20">

@@ -17,7 +17,7 @@ const geistMono = localFont({
 export const metadata = {
   title: "DionAhza | Portofolio",
   description: "Website portofolio Dion Ahza Rabbani — berisi tentang saya, projek, sertifikat, dan kontak.",
-  keywords: ["Dion Ahza", "Portofolio", "Web Developer", "React", "Laravel", "Next.js"],
+  keywords: ["Dion Ahza","dion ahza rabbani", "Portofolio dion", "Web Developer","Web Developer Indonesia","SMK Wikrama","FullStack Developer"],
   authors: [{ name: "Dion Ahza Rabbani", url: "https://dionahzarabbani.vercel.app" }],
   creator: "Dion Ahza Rabbani",
   metadataBase: new URL("https://dionahzarabbani.vercel.app"),
